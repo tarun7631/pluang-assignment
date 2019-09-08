@@ -14,7 +14,7 @@ var configs = {
   "TIME_ZONE"                          : "Asia/Calcutta",
   "TOKEN_EXPIRE_TIME"                  : 84600 ,
   "OTP_EXPIRE_TIME"                    : 300 ,
-  "FILE_UPLOAD_CHUNKSIZE"              : 1000000 ,
+  "FILE_UPLOAD_CHUNKSIZE"              : 500000 ,
   "FILE_UPLOAD_DIR"                     : './uploads/'
 };
 

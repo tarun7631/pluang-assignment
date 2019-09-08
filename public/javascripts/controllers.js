@@ -94,7 +94,7 @@ angular.module('pluangControllers', ["ngCookies" ,"ngMaterial"])
       }
     );
 	var fileReader ;
-	var sizeOfChunk = 1000000 ;
+	var sizeOfChunk = 500000 ;
 	$scope.selectedFile = null ;
 
 	$scope.fileNameChanged = function(e){
