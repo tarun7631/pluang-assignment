@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  mongo:
+    image: mongo
+    ports:
+      - "27018:27017"
+    volumes:
+      - data-volume:/data/db
+  
+  web:
+    build: .
+    command:
+      - nodemon
+      - ./bin/www
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_HOST=mongo
+      - NODE_ENV=development
+    links:
+      - mongo 
+    depends_on: 
+      - mongo
+    volumes:
+      - .:/home/ubuntu/pluang
+      - node_mod:/home/ubuntu/pluang/node_modules
+      - uploads:/home/ubuntu/pluang/uploads
+
+volumes:
+  data-volume:
+  node_mod:
+  uploads:

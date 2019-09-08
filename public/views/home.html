@@ -1,0 +1,78 @@
+
+<div>
+	<md-toolbar >
+		<div class="md-toolbar-tools main-header">
+			<span class="logo" flex-offset="10" flex-offset-xs="0" flex="">Pluang file uploader</span>
+
+			<span class="login-user" ng-if="userName">Hello {{$parent.userName}}</span>
+			<span class="login-button" ng-if="!userName" ng-click="openLoginDialog()">Login</span>
+			<span class="login-button" ng-if="userName" ng-click="removeCookies()">Log Out</span>
+			<span flex="10" flex-xs="0"></span>
+		</div>
+	</md-toolbar>
+	<ui-view></ui-view>
+
+	<footer>
+        <md-toolbar class="md-scroll-shrink footer">
+          <div layout="row" layout-align="center center" flex>
+            Made with &nbsp;<span style="color:red;">&hearts;</span> &nbsp; from &nbsp;<a href="https://linkedin.com/in/tarun-goel-7a8a0b125/">Tarun Goel</a>
+          </div>
+        </md-toolbar>
+    </footer>
+</div>
+
+
+<script type="text/ng-template" id="Add.Dialog.html">
+	<md-dialog class="login-form"> 
+		<md-content class="md-padding" style="margin:30px 0px">
+			<div layout="row" layout-xs="column">
+				<button ng-click="loginForm()" ng-class=" !selectLoginForm ? 'btn-active' : ''">Log In</button>
+				<button ng-click="signupForm()" ng-class=" selectLoginForm ? 'btn-active' : ''">Sign Up</button>
+			</div>
+
+
+		<form style="margin-top:20px" ng-hide="!selectLoginForm" autocomplete="off" ng-submit="login()">
+				<div layout layout-sm="column"> 
+					<md-input-container flex class="mb0"> 
+						<input ng-model="pNo" required placeholder="Enter Phone No." autocomplete="off"> 
+					</md-input-container> 
+				</div> 
+				<div layout layout-sm="column" class="mb0"> 
+					<md-input-container flex > 
+						<input ng-model="pwd" required placeholder="Enter Password" type="password" autocomplete="off"> 
+					</md-input-container> 
+				</div>
+				
+				<div layout layout-sm="column" class="mb0"> 
+					<input type="submit" value="Log In" class="submit-button"></button> 
+				</div> 
+
+		</form>
+
+ 
+		<form style="margin-top:20px" ng-hide="selectLoginForm" autocomplete="off" ng-submit="signup()">
+				<div layout layout-sm="column"> 
+					<md-input-container flex class="mb0"> 
+						<input ng-model="pNo" placeholder="Enter Phone No." autocomplete="off" required> 
+					</md-input-container> 
+				</div> 
+				<div layout layout-sm="column" > 
+					<md-input-container flex  class="mb0"> 
+						<input ng-model="name" required for="name" placeholder="Enter Name" autocomplete="off"> 
+					</md-input-container> 
+				</div>
+				<div layout layout-sm="column" class="mb0"> 
+					<md-input-container flex > 
+						<input ng-model="pwd" required placeholder="Enter Password" type="password" autocomplete="off"> 
+					</md-input-container> 
+				</div>
+				<div layout layout-sm="column" class="mb0"> 
+					<input type="submit" value="Sign Up" class="submit-button"></button> 
+				</div> 
+
+		</form>
+
+
+		</md-content>
+	</md-dialog>
+</script>

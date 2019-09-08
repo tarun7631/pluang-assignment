@@ -1,0 +1,29 @@
+	
+<div class="posts">
+	<div style="display: flex;align-items : center ; min-height: calc(100vh - 150px);">
+		<div style="min-width: 100% ; text-align: center;">
+			<!-- <label for="FileBox" class="md-button md-raised md-primary">Choose A File: </label><input type="file" custom-on-change="fileNameChanged" id="FileBox"><br> -->
+
+			<input class="ng-hide" id="FileBox" multiple type="file" custom-on-change="fileNameChanged"  />
+			<label for="FileBox" class="md-button md-raised md-primary" style="padding: 5px 20px">Choose Files</label>
+			<br>
+
+			<p ng-if="!selectedFile" style="margin: 10px">{{msg}}</p>
+			<p ng-if="selectedFile" style="margin: 10px">Selected File : {{selectedFile.name}}</p>
+
+			<div style="width: 50%;margin: auto;" ng-if="determinateValue">
+				<md-progress-linear md-mode="determinate" value="{{determinateValue}}"></md-progress-linear>
+			</div>
+			<div style="margin: 20px">
+				<div ng-hide="enableResuming || reconnectAttempts">
+    				<a class='md-button md-raised md-primary' style="padding: 0px 10px" ng-if="!determinateValue && selectedFile" ng-click="uploadStart()">Upload</a>
+    				<a class='md-button md-raised md-primary' style="padding: 0px 10px" ng-if="determinateValue" ng-disabled="true" style="margin: 5px">Upload...</a>
+    			</div>
+
+    			<a class='md-button md-raised md-primary' style="padding: 0px 10px" ng-disabled="true"  ng-if="reconnectAttempts" style="padding: 0px 10px">Reconnect Attempts {{reconnectAttempts}}</a>
+
+    			<a class='md-button md-raised md-primary' style="margin: 5px" ng-click="resumeUploading()" ng-if="enableResuming" style="margin: : 5px">resumeUploading</a>
+    		</div>
+    	</div>
+	</div>
+</div>
