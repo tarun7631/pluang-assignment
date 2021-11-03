@@ -30,7 +30,7 @@
     "serve-favicon": "~2.4.5",
     "socket.io": "^2.2.0",
     "sonarqube-scanner": "^2.5.0",
-    "validator": "^9.4.1",
+    "validator": "^13.7.0",
     "winston": "^3.2.1",
     "winston-daily-rotate-file": "^4.0.0"
   }
